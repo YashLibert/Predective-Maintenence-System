@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import { predictMaintenance } from './Controllers/predictionController.js';
+
 
 const app = express();
 
@@ -16,7 +18,24 @@ app.use(cookieParser());
 
 
 
+// routes import
 
+import router from './Routes/predication.Routes.js';
+
+app.use('/api', router)
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+
+
+
+
+
+
+
+export default app;
 
 
 
